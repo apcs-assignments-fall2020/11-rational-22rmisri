@@ -20,14 +20,7 @@ public class Rational
     
     // This method takes two Rationals, add thems up, 
     // and returns a Rational equal to the sum
-    public static Rational add(Rational r, Rational s)
-    {
-        int newNumerator = r.numerator*s.denominator + s.numerator*r.denominator;
-        int newDenominator = r.denominator*s.denominator; 
-        
-        Rational x = new Rational(newNumerator, newDenominator);
-        return x;
-    }
+ 
 
     // Finds the greatest common factor between a and b
     public static int greatestCommonFactor(int a, int b){
@@ -57,6 +50,16 @@ public class Rational
         return y;
     }
 
+    public static Rational add(Rational r, Rational s)
+    {
+        int newNumerator = r.numerator*s.denominator + s.numerator*r.denominator;
+        int newDenominator = r.denominator*s.denominator; 
+        
+        Rational x = new Rational(newNumerator, newDenominator);
+        Rational y = simplify(x);
+        return y;
+    }
+
     // This method takes two Rationals, subtracts thems up, 
     // and returns a Rational equal to the difference
     public static Rational subtract(Rational r, Rational s)
@@ -71,14 +74,21 @@ public class Rational
     
     public static Rational multiply(Rational r, Rational s)
     {
-        
-        return null;
+        int newnumer = r.numerator * s.numerator;
+        int newdenom = r.denominator * s.denominator;
+        Rational x = new Rational (newnumer, newdenom);
+        Rational y = simplify(x);
+        return y;
+
     }
     
     public static Rational divide(Rational r, Rational s)
     {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int newnumer = r.numerator * s.denominator;
+        int newdenom = r.denominator * s.numerator;
+        Rational x = new Rational (newnumer, newdenom);
+        Rational y = simplify(x);
+        return y;
     }
 
 
